@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+:root {
+  --transition-time: 3s; /* đổi màu 3s */
+  --fade-time: 1.5s; /* mờ đi/mờ lên mỗi pha 1.5s */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-wrap {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: background-color var(--transition-time) ease;
 }
 
-.App-link {
-  color: #61dafb;
+#quote-box {
+  max-width: 680px;
+  transition: color var(--transition-time) ease, transform 0.2s ease;
+}
+#quote-box:hover {
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+#author {
+  opacity: 0.9;
+}
+
+/* quote & author sẽ fade theo class dưới */
+.fade-quote {
+  transition: opacity var(--fade-time) ease, color var(--transition-time) ease;
+  opacity: 1;
+}
+.fade-quote.out {
+  opacity: 0;
+}
+
+.btn-accent,
+#tweet-quote {
+  transition: background-color var(--transition-time) ease,
+    color var(--transition-time) ease, filter 0.15s ease;
+}
+.btn-accent:hover,
+#tweet-quote:hover {
+  filter: brightness(1.1);
+}
+
+.footer {
+  width: 450px;
+  text-align: center;
+  display: block;
+  margin: 15px auto 30px auto;
+  font-size: 0.8em;
+  color: #fff;
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #fff;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  opacity: 0.75;
 }
